@@ -3,7 +3,7 @@
     "chain": "mainnet",
     "datasources": [
      { 
-     "address": "0xacf367d236502f9eD670A080266D8d84c057F262", 
+     "address": "0x9a24bde4c08e692622BddC935eb01f3dBBDf4e88", 
      "module": [ "erc20",  "ownable"] }
     ]
  }

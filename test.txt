@@ -1,0 +1,29 @@
+npx hardhat clean
+npx hardhat compile
+npx hardhat run --network mumbai  scripts/deploy.js
+npx hardhat verify --network mumbai 0xaEbFA83b52AB51106Df7457D6d029Aae90898e71  --constructor-args .\scripts\MiiToken.param.js
+cd subgraph
+graph init --product hosted-service wolfgangtomas5/miitoken-subgraph
+
+√ Protocol · ethereum
+√ Subgraph name · wolfgangtomas5/miitoken-subgraph       
+√ Directory to create the subgraph in · miitoken-subgraph
+√ Ethereum network · mumbai
+√ Contract address · 0xaEbFA83b52AB51106Df7457D6d029Aae90898e71
+× Failed to fetch ABI from Etherscan: ABI not found, try loading it from a local file
+√ Fetching Start Block
+√ ABI file (path) · ../artifacts/contracts/MiiToken.sol/MiiToken.json
+? Start Block » 38231201
+√ Start Block · 38231201  
+√ Contract Name · MIIToken
+√ Index contract events as entities (Y/n) · true
+
+
+cd miitoken-subgraph
+graph codegen
+graph build
+
+graph auth --product hosted-service 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
+graph deploy --product hosted-service wolfgangtomas5/miitoken-subgraph
+
+0x4A50C27C1606A5AE576F5A80fE3C454D08061a1f 
